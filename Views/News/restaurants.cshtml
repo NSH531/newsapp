@@ -1,0 +1,25 @@
+﻿@model List<News.Web.Models.restaurant>
+
+@{
+    ViewBag.Title = "restaurants";
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}
+
+<h2>restaurants</h2>
+@{
+    int i = 1;
+}
+@{foreach (var item in Model)
+    {
+    <div class="alert-success">
+        <section id="addr @i" >@item.addr</section>
+
+        <section id="menu @i">@foreach (var item1 in item.menu)
+        {
+            <section class="alert-warning" ></section>
+        }      </section>
+         </div>
+        i++;
+    }
+    }
+

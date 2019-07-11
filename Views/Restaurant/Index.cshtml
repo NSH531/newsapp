@@ -1,0 +1,100 @@
+﻿@model List<News.Web.Models.restaurant>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomLayout.cshtml";
+}
+@{
+
+
+    IList<SelectListItem> list = Enum.GetValues(typeof(News.Web.Models.restaurant.type)).Cast<News.Web.Models.restaurant.type>().Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() }).ToList();
+
+    System.Web.Mvc.SelectList data = new System.Web.Mvc.SelectList(list, "Value", "Text");
+    //var d2 = (IEnumerable<SelectList>)data;
+    var d3 = (IEnumerable<SelectListItem>)data;
+
+    var h = Html.DropDownList("type", d3);
+    }
+            
+        <h2>Index</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"> שם</th>
+                    <th scope="col">כתובת</th>
+                    <th scope="col">תפריט</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td> @item.name</td>
+                        <td>@item.addr</td>
+                        <td>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">מנה</th>
+                                        <th scope="col" style="border-right-color:green">מחיר</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var iiitem in item.menu)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @iiitem.name
+                                            </td>
+                                            <TD>
+                                                @iiitem.price ₪
+                                            </TD>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </td>
+
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+        <script>
+            var helloWorld = new HTMLString.String("@h");
+
+
+            $("#f").add(helloWorld.html());
+        </script>
+        <p>
+            @{
+                using (Html.BeginForm("add", "restaurant", FormMethod.Post))
+
+                {
+                    <fieldset id="f">
+                    @*@{
+                            StringWriter myWriter = new StringWriter();
+
+                            // Decode the encoded string.
+                            HttpUtility.HtmlDecode(h, myWriter);
+                            var T = myWriter;
+                        }
+                        @{
+
+                        }
+                        @T*@
+                    @{
+
+                    }
+
+                        <input type="submit" />
+
+                </fieldset>
+
+
+                        }
+            }
+
+
+</p>
