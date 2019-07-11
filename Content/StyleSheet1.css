@@ -1,0 +1,38 @@
+﻿
+@font-face {
+    font-family: 'khand';
+    src: url('../fonts/khand.ttf') format('truetype');
+}
+@media screen and (max-width 800px){        .r{
+                              position: relative;
+                              float:left;
+                              color:rgba(172, 199, 58, 0.74)
+
+        }
+          }
+@media-smartphone{
+    .r{
+                                      position: relative;
+                              float:left                ;
+                                                color:rgba(172, 199, 58, 0.74);
+
+
+    }
+    @media-desktop{
+        .r{
+            position:absolute;
+                                          color:rgba(172, 199, 58, 0.74)
+            
+        }
+    }
+}
+        .j
+{
+    background-color:orange;
+    
+}
+        @media screen and (min-width 801px){.f{
+
+                                            }
+
+        }
