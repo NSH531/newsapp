@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+      @{
+
+          IList<SelectListItem> list = Enum.GetValues(typeof(News.Web.Models.restaurant.type)).Cast<News.Web.Models.restaurant.type>().Select(x => new SelectListItem { Text = x.ToString(), Value = ((int)x).ToString() }).ToList();
+
+          System.Web.Mvc.SelectList data = new System.Web.Mvc.SelectList(list, "Value", "Text");
+          var d2 = (System.Collections.Generic.IEnumerable<System.Web.WebPages.Html.SelectListItem>)data;
+    }
+    @Html.DropDownList("idControl", d2)
+    </body>
+</html>
