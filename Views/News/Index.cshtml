@@ -1,0 +1,30 @@
+﻿@section Scripts {
+    @Scripts.Render("~/bundles/news")
+}
+@{
+    ViewBag.Title = "חדשות";
+}
+
+<h2>Index</h2>
+
+
+<div dir="rtl" class="row">
+
+    <div class="col-md-4" >
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">News</h2>
+
+                <span data-bind="text: total">
+
+                </span>
+            </div>
+            <div data-bind="foreach: news" class="carousel-item" bgcolor="#5599dd">
+                <img data-bind="attr:{src: urlToImage}" width="75%" />
+                <br />
+                <small><a data-bind="attr:{href: url},text: title" target="_blank"></a></small>
+            </div>
+      </div>
+        <div class="alert alert-dan@ger" data-bind="visible: error"><p data-bind="text: error"></p></div>
+    </div>
+</div>

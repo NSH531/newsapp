@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+   
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/cyber")
+
+
+}
+<h2>Index</h2>
+<div class="col-md-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">News</h2>
+
+            <span data-bind="text: total">
+
+            </span>
+        </div>
+        <div @*id="newsbar"*@ class="@*panel-body nav-justified*@ carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" alt="title">
+                    <h3>
+                        cyber
+                        <hr />
+                        clock:@DateTime.Now.AddHours(2)
+
+                    </h3>
+
+                </div>
+                @*<ul  class="list-unstyled"*@ >
+                @*<li >*@
+                <div data-bind="foreach: news" class="carousel-item" bgcolor="#5599dd">
+                    <img data-bind="attr:{src: urlToImage}" width="75%" />
+                    <br />
+                    <small><a data-bind="attr:{href: url},text: title" target="_blank"></a></small>
+                </div>
+
+                @*</li>
+                    </ul>*@
+            </div>
+        </div>
+        <div class="alert alert-dan@ger" data-bind="visible: error"><p data-bind="text: error"></p></div>
+    </div>
+</div>
+
+
